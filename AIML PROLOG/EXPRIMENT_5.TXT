@@ -1,0 +1,78 @@
+student(s1, 'Aman').
+student(s2, 'Priya').
+student(s3, 'Rahul').
+student(s4, 'Neha').
+student(s5, 'Rohit').
+student(s6, 'Anjali').
+student(s7, 'Vikas').
+student(s8, 'Sneha').
+
+% ---------------------------------------------------------
+% MARKS FACTS
+% marks(Student_ID, Total_Marks).
+% Total marks are out of 100.
+% ---------------------------------------------------------
+
+marks(s1, 92).
+marks(s2, 86).
+marks(s3, 72).
+marks(s4, 68).
+marks(s5, 54).
+marks(s6, 49).
+marks(s7, 35).
+marks(s8, 78).
+
+% =========================================================
+% RULES FOR CLASSIFICATION
+% =========================================================
+
+% ---------------------------------------------------------
+% RULE 1: TOPPER
+% A student is a topper if marks are 75 or above.
+% ---------------------------------------------------------
+
+topper(Name) :-
+    student(ID, Name),
+    marks(ID, Marks),
+    Marks >= 75.
+
+% ---------------------------------------------------------
+% RULE 2: AVERAGE PERFORMER
+% A student is average if marks are 50 to 74.
+% ---------------------------------------------------------
+
+average(Name) :-
+    student(ID, Name),
+    marks(ID, Marks),
+    Marks >= 50,
+    Marks < 75.
+
+% ---------------------------------------------------------
+% RULE 3: FAILED STUDENT
+% A student fails if marks are below 50.
+% ---------------------------------------------------------
+
+fail(Name) :-
+    student(ID, Name),
+    marks(ID, Marks),
+    Marks < 50.
+
+
+% GENERAL PERFORMANCE RULE
+
+
+performance(Name, topper) :-
+    student(ID, Name),
+    marks(ID, Marks),
+    Marks >= 75.
+
+performance(Name, average) :-
+    student(ID, Name),
+    marks(ID, Marks),
+    Marks >= 50,
+    Marks < 75.
+
+performance(Name, fail) :-
+    student(ID, Name),
+    marks(ID, Marks),
+    Marks < 50.

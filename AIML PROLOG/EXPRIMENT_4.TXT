@@ -1,0 +1,51 @@
+faculty(ravi, artificial_intelligence).
+faculty(priya, machine_learning).
+faculty(amit, data_structures).
+faculty(neha, database_management).
+faculty(suresh, computer_networks).
+ 
+% ---------------------------------------------------------
+% SUBJECTS
+% ---------------------------------------------------------
+ 
+subject(ai, artificial_intelligence).
+subject(ml, machine_learning).
+subject(ds, data_structures).
+subject(dbms, database_management).
+subject(cn, computer_networks).
+ 
+% ---------------------------------------------------------
+% CLASSROOMS
+% classroom(Room, Block, Capacity)
+% ---------------------------------------------------------
+ 
+classroom(c101, block_a, 60).
+classroom(c102, block_a, 50).
+classroom(c201, block_b, 60).
+classroom(lab1, block_c, 40).
+classroom(lab2, block_c, 40).
+ 
+% ---------------------------------------------------------
+% TIMETABLE
+% timetable(Day, Time, Subject, Faculty, Room)
+% ---------------------------------------------------------
+ 
+timetable(monday, '09:00-10:00', ai, ravi, c101).
+timetable(monday, '10:00-11:00', ml, priya, c102).
+timetable(monday, '11:00-12:00', ds, amit, c201).
+ 
+timetable(tuesday, '09:00-10:00', dbms, neha, c101).
+timetable(tuesday, '10:00-11:00', cn, suresh, c102).
+timetable(tuesday, '11:00-12:00', ai, ravi, c201).
+ 
+timetable(wednesday, '09:00-10:00', ml, priya, lab1).
+timetable(wednesday, '10:00-11:00', ds, amit, c101).
+timetable(wednesday, '11:00-12:00', dbms, neha, c102).
+ 
+timetable(thursday, '09:00-10:00', cn, suresh, c201).
+timetable(thursday, '10:00-11:00', ai, ravi, lab1).
+timetable(thursday, '11:00-12:00', ml, priya, lab2).
+ 
+timetable(friday, '09:00-10:00', ds, amit, c101).
+timetable(friday, '10:00-11:00', dbms, neha, c102).
+timetable(friday, '11:00-12:00', cn, suresh, c201).

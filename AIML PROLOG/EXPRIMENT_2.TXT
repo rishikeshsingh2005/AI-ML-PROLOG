@@ -1,0 +1,62 @@
+DOMAINS
+  num = integer
+ 
+PREDICATES
+  arithmetic(num, num)
+ 
+CLAUSES
+  arithmetic(A, B) :-
+    Sum = A + B,
+    Diff = A - B,
+    Prod = A * B,
+    Quot = A / B,
+    Rem = A mod B,
+    write("Sum = ", Sum), nl,
+    write("Difference = ", Diff), nl,
+    write("Product = ", Prod), nl,
+    write("Quotient = ", Quot), nl,
+    write("Remainder = ", Rem), nl.
+
+EXP 2
+
+DOMAINS
+  num = integer
+ 
+PREDICATES
+  fact(num, num)
+ 
+CLAUSES
+  fact(0, 1) :- !.                 % Base case: 0! = 1
+  fact(N, Result) :-                % Recursive case
+    N > 0,
+    N1 = N - 1,
+    fact(N1, R1),
+    Result = N * R1.
+ 
+GOAL
+  fact(5, F),
+  write("Factorial of 5 = ", F), nl.
+
+Program 3: Fibonacci Series Generation
+
+DOMAINS
+  num = integer
+ 
+PREDICATES
+  fibseries(num)
+  fib_helper(num, num, num, num)
+ 
+CLAUSES
+  fibseries(N) :-
+    write("Fibonacci series up to ", N, " terms: "), nl,
+    fib_helper(0, 1, 0, N).
+ 
+  fib_helper(_, _, Count, N) :-
+    Count > N, !.
+  fib_helper(A, B, Count, N) :-
+    Count =< N,
+    write(A), write(" "),
+    Next = A + B,
+    Count1 = Count + 1,
+    fib_helper(B, Next, Count1, N).
+ 
